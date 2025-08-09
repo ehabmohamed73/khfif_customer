@@ -8,4 +8,8 @@ class imagesAssets {
   static const logo = "$rootAssets/logo.png";
   static const yemen = "$rootAssets/yemen.png";
   static const profile = "$rootAssets/avatar.png";
+  //network images
+  static const fromCityImage = "$rootAssets/from.png";
+  static const toCityImage = "$rootAssets/to.png";
+  static const shipmentImage = "$rootAssets/things.png";
 }

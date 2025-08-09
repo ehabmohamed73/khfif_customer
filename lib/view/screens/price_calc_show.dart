@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:khafif/controller/price_calc_controller.dart';
 import 'package:khafif/core/constants/appColors.dart';
+import 'package:khafif/core/constants/image_assets.dart';
 import 'package:khafif/view/widgets/calculator/custom_build_widget.dart';
 import 'package:khafif/view/widgets/calculator/custom_header_calc.dart';
 
@@ -34,20 +35,20 @@ class PriceCalcShow extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       CustomBuildWidget(
-                        icon: Icons.north,
+                        imageUrl: imagesAssets.fromCityImage,
                         title: "المرسلة من",
                         value: controller.fromCity,
                       ),
                       CustomBuildWidget(
                         title: "المرسلة إلى",
                         value: controller.toCity,
-                        icon: Icons.south,
+                        imageUrl: imagesAssets.toCityImage,
                       ),
                       CustomBuildWidget(
                         title: "ماذا تريد أن تشحن؟",
                         value:
                             "${controller.weightController.text} كجم، ${controller.shipmentType}",
-                        icon: Icons.description,
+                        imageUrl: imagesAssets.shipmentImage,
                       ),
                     ],
                   ),

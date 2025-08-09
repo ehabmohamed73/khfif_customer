@@ -5,13 +5,14 @@ import 'package:khafif/controller/price_calc_controller.dart';
 class CustomBuildWidget extends GetView<PriceCalcController> {
   final String? title;
   final String? value;
-  final IconData? icon;
+  // final IconData? icon;
+  final String imageUrl;
 
   const CustomBuildWidget({
     super.key,
     required this.title,
     required this.value,
-    required this.icon,
+    required this.imageUrl,
   });
 
   @override
@@ -27,7 +28,17 @@ class CustomBuildWidget extends GetView<PriceCalcController> {
             children: [
               Row(
                 children: [
-                  Icon(icon, size: 20),
+                  Container(
+                    width: 40,
+                    height: 40,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage(imageUrl),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 8),
                   Text(
                     title!,
                     style: const TextStyle(
@@ -49,9 +60,12 @@ class CustomBuildWidget extends GetView<PriceCalcController> {
               ),
             ],
           ),
-          Text(
-            value!,
-            style: const TextStyle(fontSize: 14, color: Colors.black87),
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+            child: Text(
+              value!,
+              style: const TextStyle(fontSize: 14, color: Colors.black87),
+            ),
           ),
         ],
       ),
