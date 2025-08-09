@@ -2,7 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:khafif/controller/sened_package_controller.dart';
 import 'package:khafif/core/constants/appColors.dart';
+import 'package:khafif/core/constants/image_assets.dart';
 import 'package:khafif/view/widgets/calculator/custom_header_calc.dart';
+import 'package:khafif/view/widgets/sened_package/address_card.dart';
+import 'package:khafif/view/widgets/sened_package/build_progressline.dart';
+import 'package:khafif/view/widgets/sened_package/build_step_itme.dart';
 
 class SenedPackage extends StatelessWidget {
   SenedPackage({super.key});
@@ -36,11 +40,23 @@ class SenedPackage extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    _buildStepItem(Icons.arrow_upward, 'من', true),
-                    Expanded(child: _buildProgressLine()),
-                    _buildStepItem(Icons.arrow_downward, 'الى', true),
-                    Expanded(child: _buildProgressLine()),
-                    _buildStepItem(Icons.help_outline, 'ماذا', false),
+                    BuildStepItme(
+                      imageUrl: imagesAssets.fromCityImage,
+                      label: 'من',
+                      done: true,
+                    ),
+                    Expanded(child: BuildProgressline()),
+                    BuildStepItme(
+                      imageUrl: imagesAssets.toCityImage,
+                      label: 'الى',
+                      done: false,
+                    ),
+                    Expanded(child: BuildProgressline()),
+                    BuildStepItme(
+                      imageUrl: imagesAssets.shipmentImage,
+                      label: 'ماذا',
+                      done: false,
+                    ),
                   ],
                 ),
               ),
@@ -48,7 +64,7 @@ class SenedPackage extends StatelessWidget {
 
               // عنوان الاستلام
               Text(
-                'عنوان الاستلام',
+                'عنوان المرسل',
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
               ),
               Text(
@@ -56,8 +72,19 @@ class SenedPackage extends StatelessWidget {
                 style: TextStyle(fontSize: 13, color: Colors.grey[600]),
               ),
               SizedBox(height: 8),
-              _buildAddressCard(),
+              SizedBox(
+                height: 120,
 
+                child: ListView.builder(
+                  itemCount: controller.addressList.length,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) {
+                    return AddressCard(
+                      addressModel: controller.addressList[index],
+                    );
+                  },
+                ),
+              ),
               SizedBox(height: 25),
 
               // اختيار التاريخ
@@ -158,68 +185,6 @@ class SenedPackage extends StatelessWidget {
       ),
     );
   }
-}
-
-Widget _buildStepItem(IconData icon, String label, bool done) {
-  return Column(
-    children: [
-      Container(
-        decoration: BoxDecoration(
-          color: done ? Colors.green : Colors.grey[300],
-          borderRadius: BorderRadius.circular(10),
-        ),
-        padding: EdgeInsets.all(8),
-        child: Icon(icon, color: Colors.white),
-      ),
-      SizedBox(height: 6),
-      Text(label, style: TextStyle(fontWeight: FontWeight.bold)),
-    ],
-  );
-}
-
-Widget _buildProgressLine() {
-  return Container(
-    height: 3,
-    color: Colors.green.withOpacity(0.5),
-    margin: EdgeInsets.symmetric(horizontal: 8, vertical: 15),
-  );
-}
-
-Widget _buildAddressCard() {
-  return Container(
-    padding: EdgeInsets.all(12),
-    decoration: BoxDecoration(
-      color: Colors.green.withOpacity(0.1),
-      borderRadius: BorderRadius.circular(12),
-    ),
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          'العنوان الأساسي',
-          style: TextStyle(color: Colors.green, fontWeight: FontWeight.bold),
-        ),
-        Text(
-          'العنوان 1',
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-        ),
-        SizedBox(height: 4),
-        GestureDetector(
-          onTap: () {
-            // افتح رابط الخرائط
-          },
-          child: Text(
-            'https://maps.app.goo.gl/EEg5N8NJJHX9u7vz5',
-            style: TextStyle(
-              color: Colors.blue,
-              decoration: TextDecoration.underline,
-            ),
-          ),
-        ),
-        Text('اليمن، صنعاء'),
-      ],
-    ),
-  );
 }
 
 Widget _buildTimeSelector(
