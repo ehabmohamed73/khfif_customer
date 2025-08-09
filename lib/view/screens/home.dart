@@ -131,6 +131,7 @@ import 'package:khafif/core/functions/alert_exite.dart';
 import 'package:khafif/view/screens/home_page.dart';
 import 'package:khafif/view/screens/price_calc.dart';
 import 'package:khafif/view/screens/profile.dart';
+import 'package:khafif/view/screens/sened_package.dart';
 import 'package:khafif/view/screens/shipment_page.dart';
 import 'package:khafif/view/widgets/Home/custome_navbar.dart';
 
@@ -138,7 +139,7 @@ class Home extends StatelessWidget {
   final List<Widget> pages = [
     HomePage(),
     ShipmentsPage(),
-    Center(child: Text("إرسال")),
+    SenedPackage(),
     PriceCalc(),
     ProfilePage(),
   ];
