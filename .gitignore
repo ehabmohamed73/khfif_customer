@@ -1,7 +1,35 @@
+# Flutter/Dart related
 build/
 .dart_tool/
+.packages
+.pub-cache/
+.flutter-plugins
+.flutter-plugins-dependencies
+.metadata
 .idea/
 .vscode/
 *.iml
-.packages
+
+# Android related
+android/.gradle/
+android/app/debug.keystore
+
+# iOS related
+ios/Flutter/.last_build_id
+ios/Pods/
+ios/Runner.xcworkspace/
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec
+ios/Flutter/App.framework
+ios/Flutter/FlutterPluginRegistrant
+
+# Logs and misc
+*.log
+*.lock
+*.lock.json
+
+# Files for Dart analysis server
+.analysis_options
+
+# Obsolete lock files
 pubspec.lock
