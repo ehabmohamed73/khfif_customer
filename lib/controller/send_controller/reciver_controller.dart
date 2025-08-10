@@ -1,6 +1,13 @@
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 class ReciverController extends GetxController {
+  late TextEditingController cityController;
+  late TextEditingController streetController;
+  late TextEditingController descriptionController;
+  late TextEditingController reciverNameController;
+  late TextEditingController reciverPhoneController;
+
   String? toCity;
   List<String> cities = [
     'صنعاء',
@@ -20,6 +27,25 @@ class ReciverController extends GetxController {
     'الضالع',
     'حجة',
   ];
+  @override
+  void onInit() {
+    cityController = TextEditingController();
+    streetController = TextEditingController();
+    descriptionController = TextEditingController();
+    reciverNameController = TextEditingController();
+    reciverPhoneController = TextEditingController();
+    super.onInit();
+  }
+
+  @override
+  void onClose() {
+    cityController.dispose();
+    streetController.dispose();
+    descriptionController.dispose();
+    reciverNameController.dispose();
+    reciverPhoneController.dispose();
+    super.onClose();
+  }
 
   void setToCity(String? city) {
     toCity = city;

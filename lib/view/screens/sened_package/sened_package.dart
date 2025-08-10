@@ -75,7 +75,7 @@ class SenedPackage extends StatelessWidget {
               ),
               SizedBox(height: 8),
               SizedBox(
-                height: 110,
+                height: 115,
                 child: ListView.builder(
                   itemCount: controller.addressList.length,
                   scrollDirection: Axis.horizontal,

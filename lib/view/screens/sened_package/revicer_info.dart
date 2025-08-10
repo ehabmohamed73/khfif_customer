@@ -7,6 +7,8 @@ import 'package:khafif/view/widgets/calculator/custom_dropdown_input.dart';
 import 'package:khafif/view/widgets/calculator/custom_header_calc.dart';
 import 'package:khafif/view/widgets/sened_package/build_progressline.dart';
 import 'package:khafif/view/widgets/sened_package/build_step_itme.dart';
+import 'package:khafif/view/widgets/sened_package/custome_input.dart';
+import 'package:khafif/view/widgets/sened_package/custome_text.dart';
 
 class RevicerInfo extends StatelessWidget {
   RevicerInfo({super.key});
@@ -61,6 +63,7 @@ class RevicerInfo extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 20),
+                CustomeText(text: "المحافظة* "),
                 Container(
                   height: 60,
                   width: double.infinity,
@@ -82,6 +85,25 @@ class RevicerInfo extends StatelessWidget {
                         )
                         .toList(),
                   ),
+                ),
+                CustomeText(text: "المدينة * "),
+                CustomeInput(textEditingController: controller.cityController),
+                CustomeText(text: "الشارع * "),
+                CustomeInput(
+                  textEditingController: controller.streetController,
+                ),
+                CustomeText(text: "الوصف"),
+                CustomeInput(
+                  textEditingController: controller.descriptionController,
+                ),
+                SizedBox(height: 20),
+                CustomeText(text: "اسم المستلم * "),
+                CustomeInput(
+                  textEditingController: controller.reciverNameController,
+                ),
+                CustomeText(text: "رقم الهاتف * "),
+                CustomeInput(
+                  textEditingController: controller.reciverPhoneController,
                 ),
               ],
             ),
