@@ -3,7 +3,8 @@ import 'package:get/get.dart';
 import 'package:khafif/data/models/address_model.dart';
 
 class SenedPackageController extends GetxController {
-  int selectedDateIndex = 0;
+  int? selectedDateIndex;
+  int? selectedLocation;
   TimeOfDay fromTime = TimeOfDay(hour: 9, minute: 30);
   TimeOfDay toTime = TimeOfDay(hour: 12, minute: 30);
 
@@ -39,6 +40,11 @@ class SenedPackageController extends GetxController {
 
   void selectDate(int index) {
     selectedDateIndex = index;
+    update();
+  }
+
+  void setselectedLocation(int index) {
+    selectedLocation = index;
     update();
   }
 

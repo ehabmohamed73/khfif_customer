@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
+
 import 'package:khafif/data/models/address_model.dart';
 
 class AddressCard extends StatelessWidget {
+  final Color bgColor;
+  final Color txtColor; // You can change this to any color you want
   final AddressModel addressModel;
 
-  const AddressCard({super.key, required this.addressModel});
+  const AddressCard({
+    super.key,
+    required this.addressModel,
+    required this.bgColor,
+    required this.txtColor,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +20,7 @@ class AddressCard extends StatelessWidget {
       padding: EdgeInsets.all(12),
       margin: EdgeInsets.symmetric(horizontal: 10),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: bgColor,
         boxShadow: [
           BoxShadow(
             color: Colors.grey.withOpacity(0.2),
@@ -28,11 +36,15 @@ class AddressCard extends StatelessWidget {
         children: [
           Text(
             addressModel.mainAddress!,
-            style: TextStyle(color: Colors.green, fontWeight: FontWeight.bold),
+            style: TextStyle(color: txtColor, fontWeight: FontWeight.bold),
           ),
           Text(
             addressModel.addressName!,
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 16,
+              color: txtColor,
+            ),
           ),
           SizedBox(height: 4),
           GestureDetector(
@@ -42,7 +54,7 @@ class AddressCard extends StatelessWidget {
             child: Text(
               addressModel.addressLink!,
               style: TextStyle(
-                color: Colors.blue,
+                color: Colors.black,
                 decoration: TextDecoration.underline,
               ),
             ),

@@ -3,10 +3,14 @@ import 'package:get/get.dart';
 import 'package:khafif/controller/sened_package_controller.dart';
 import 'package:khafif/core/constants/appColors.dart';
 import 'package:khafif/core/constants/image_assets.dart';
+import 'package:khafif/core/functions/format_time.dart';
+import 'package:khafif/view/widgets/auth/coustomAuthButton.dart';
 import 'package:khafif/view/widgets/calculator/custom_header_calc.dart';
+import 'package:khafif/view/widgets/onboarding/custom_button_onboarding.dart';
 import 'package:khafif/view/widgets/sened_package/address_card.dart';
 import 'package:khafif/view/widgets/sened_package/build_progressline.dart';
 import 'package:khafif/view/widgets/sened_package/build_step_itme.dart';
+import 'package:khafif/view/widgets/sened_package/date_of_recive.dart';
 
 class SenedPackage extends StatelessWidget {
   SenedPackage({super.key});
@@ -61,7 +65,6 @@ class SenedPackage extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 20),
-
               // عنوان الاستلام
               Text(
                 'عنوان المرسل',
@@ -73,20 +76,31 @@ class SenedPackage extends StatelessWidget {
               ),
               SizedBox(height: 8),
               SizedBox(
-                height: 120,
-
+                height: 110,
                 child: ListView.builder(
                   itemCount: controller.addressList.length,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
-                    return AddressCard(
-                      addressModel: controller.addressList[index],
+                    bool selected = index == controller.selectedLocation;
+                    return GestureDetector(
+                      onTap: () {
+                        // هنا يمكنك إضافة منطق عند اختيار العنوان
+                        controller.setselectedLocation(index);
+                      },
+                      child: AddressCard(
+                        txtColor: selected
+                            ? AppColor.white
+                            : AppColor.primaryColor,
+                        bgColor: selected
+                            ? AppColor.secoundColor
+                            : AppColor.fourthColor.withOpacity(0.3),
+                        addressModel: controller.addressList[index],
+                      ),
                     );
                   },
                 ),
               ),
-              SizedBox(height: 25),
-
+              SizedBox(height: 15),
               // اختيار التاريخ
               Text(
                 'تاريخ الاستلام',
@@ -104,33 +118,10 @@ class SenedPackage extends StatelessWidget {
                       onTap: () {
                         controller.selectDate(index);
                       },
-                      child: Container(
-                        width: 60,
-                        margin: EdgeInsets.symmetric(horizontal: 6),
-                        decoration: BoxDecoration(
-                          color: selected ? Colors.green : Colors.grey[200],
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        alignment: Alignment.center,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              controller.dates[index],
-                              style: TextStyle(
-                                color: selected ? Colors.white : Colors.black,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            Text(
-                              controller.weekdays[index],
-                              style: TextStyle(
-                                color: selected ? Colors.white : Colors.black,
-                                fontSize: 12,
-                              ),
-                            ),
-                          ],
-                        ),
+                      child: DateOfRecive(
+                        selected ? AppColor.primaryColor : AppColor.gray2,
+                        index,
+                        selected ? AppColor.white : AppColor.black,
                       ),
                     );
                   },
@@ -161,22 +152,16 @@ class SenedPackage extends StatelessWidget {
                   ),
                 ],
               ),
-
               Spacer(),
-
               // زر التالي
               SizedBox(
                 width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.green,
-                    padding: EdgeInsets.symmetric(vertical: 15),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
-                  child: Text('التالي', style: TextStyle(fontSize: 18)),
+                child: CoustomAuthButton(
+                  text: 'استمر',
+                  onPressed: () {
+                    print(formatTimeOfDay(TimeOfDay.now()));
+                    // استبدل '/nextScreen' بالمسار الصحيح
+                  },
                 ),
               ),
             ],
@@ -212,7 +197,7 @@ Widget _buildTimeSelector(
             borderRadius: BorderRadius.circular(8),
           ),
           child: Text(
-            _formatTimeOfDay(time),
+            formatTimeOfDay(time),
             style: TextStyle(
               color: Colors.green,
               fontWeight: FontWeight.bold,
@@ -223,11 +208,4 @@ Widget _buildTimeSelector(
       ),
     ],
   );
-}
-
-String _formatTimeOfDay(TimeOfDay time) {
-  final hour = time.hourOfPeriod == 0 ? 12 : time.hourOfPeriod;
-  final minute = time.minute.toString().padLeft(2, '0');
-  final period = time.period == DayPeriod.am ? 'ص' : 'م';
-  return '$hour:$minute $period';
 }

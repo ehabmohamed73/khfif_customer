@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class AppColor {
   static const Color gray = Color(0xff8e8e8e);
-  static const Color gray2 = Color(0xFF4E4E4E);
+  static const Color gray2 = Color(0xFFEEEEEE);
   static const Color black = Color(0xff000000);
   static const Color white = Color(0xffffffff);
   // static const Color primaryColor = Color(0xff5DB1DF);
