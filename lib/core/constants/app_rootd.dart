@@ -22,5 +22,5 @@ class AppRoot {
   static const String priceCalc = "/priceCalc";
   static const String priceTypeCalcScreen = "/priceTypeCalc";
   static const String priceCalcShowScreen = "/priceCalcShow";
-  
+  static const String reciverInfo = "/reciverInfo";
 }

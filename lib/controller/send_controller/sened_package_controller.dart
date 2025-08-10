@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:khafif/core/constants/app_rootd.dart';
 import 'package:khafif/data/models/address_model.dart';
 
 class SenedPackageController extends GetxController {
@@ -56,5 +57,9 @@ class SenedPackageController extends GetxController {
   void setToTime(TimeOfDay time) {
     toTime = time;
     update();
+  }
+
+  void goTOReceiverInfo() {
+    Get.toNamed(AppRoot.reciverInfo);
   }
 }

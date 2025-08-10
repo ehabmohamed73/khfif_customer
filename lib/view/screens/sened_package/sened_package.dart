@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:khafif/controller/sened_package_controller.dart';
+import 'package:khafif/controller/send_controller/sened_package_controller.dart';
 import 'package:khafif/core/constants/appColors.dart';
 import 'package:khafif/core/constants/image_assets.dart';
 import 'package:khafif/core/functions/format_time.dart';
@@ -158,6 +158,7 @@ class SenedPackage extends StatelessWidget {
                 child: CoustomAuthButton(
                   text: 'استمر',
                   onPressed: () {
+                    controller.goTOReceiverInfo();
                     print(formatTimeOfDay(TimeOfDay.now()));
                     // استبدل '/nextScreen' بالمسار الصحيح
                   },

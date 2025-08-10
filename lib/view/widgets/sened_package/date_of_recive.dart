@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/state_manager.dart';
-import 'package:khafif/controller/sened_package_controller.dart';
+import 'package:khafif/controller/send_controller/sened_package_controller.dart';
 
 class DateOfRecive extends GetView<SenedPackageController> {
   final Color bgColor;

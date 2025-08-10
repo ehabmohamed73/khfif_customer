@@ -38,6 +38,14 @@ class PriceCalc extends StatelessWidget {
                   child: CustomDropdownInput(
                     (val) => controller.setFromCity(val),
                     controller.fromCity,
+                    controller.cities
+                        .map(
+                          (city) => DropdownMenuItem<String>(
+                            value: city,
+                            child: Text(city, textDirection: TextDirection.rtl),
+                          ),
+                        )
+                        .toList(),
                   ),
                 ),
                 Container(
@@ -55,6 +63,14 @@ class PriceCalc extends StatelessWidget {
                   child: CustomDropdownInput(
                     (val) => controller.setToCity(val),
                     controller.toCity,
+                    controller.cities
+                        .map(
+                          (city) => DropdownMenuItem<String>(
+                            value: city,
+                            child: Text(city, textDirection: TextDirection.rtl),
+                          ),
+                        )
+                        .toList(),
                   ),
                 ),
                 Container(

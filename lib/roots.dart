@@ -11,6 +11,7 @@ import 'package:khafif/view/screens/onboarding.dart';
 import 'package:khafif/view/screens/price_calc.dart';
 import 'package:khafif/view/screens/price_calc_show.dart';
 import 'package:khafif/view/screens/price_calc_type.dart';
+import 'package:khafif/view/screens/sened_package/revicer_info.dart';
 import 'package:khafif/view/screens/splash_screen.dart';
 
 List<GetPage<dynamic>>? routes = [
@@ -32,6 +33,8 @@ List<GetPage<dynamic>>? routes = [
   ),
   GetPage(name: AppRoot.priceTypeCalcScreen, page: () => PriceCalcType()),
   GetPage(name: AppRoot.priceCalcShowScreen, page: () => PriceCalcShow()),
-  GetPage(name: AppRoot.priceCalc, page: ()=> PriceCalc())
+  GetPage(name: AppRoot.priceCalc, page: () => PriceCalc()),
+  GetPage(name: AppRoot.reciverInfo, page: () => RevicerInfo()),
+
   // Add other routes here as needed
 ];
