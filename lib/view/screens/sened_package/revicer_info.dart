@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:khafif/controller/send_controller/reciver_controller.dart';
 import 'package:khafif/core/constants/appColors.dart';
 import 'package:khafif/core/constants/image_assets.dart';
+import 'package:khafif/view/widgets/auth/coustomAuthButton.dart';
 import 'package:khafif/view/widgets/calculator/custom_dropdown_input.dart';
 import 'package:khafif/view/widgets/calculator/custom_header_calc.dart';
 import 'package:khafif/view/widgets/sened_package/build_progressline.dart';
@@ -104,6 +105,29 @@ class RevicerInfo extends StatelessWidget {
                 CustomeText(text: "رقم الهاتف * "),
                 CustomeInput(
                   textEditingController: controller.reciverPhoneController,
+                ),
+                SizedBox(height: 20),
+                Row(
+                  children: [
+                    Checkbox(
+                      activeColor: AppColor.primaryColor,
+                      value: controller.rememberMe,
+                      onChanged: (value) {
+                        controller.toggleRememberMe();
+                      },
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: const Text('حفظ العنوان'),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 20),
+                Container(
+                  margin: EdgeInsets.symmetric(horizontal: 16),
+                  width: double.infinity,
+                  height: 60,
+                  child: CoustomAuthButton(text: "التالي", onPressed: () {}),
                 ),
               ],
             ),

@@ -7,7 +7,7 @@ class ReciverController extends GetxController {
   late TextEditingController descriptionController;
   late TextEditingController reciverNameController;
   late TextEditingController reciverPhoneController;
-
+  var rememberMe = false;
   String? toCity;
   List<String> cities = [
     'صنعاء',
@@ -27,6 +27,16 @@ class ReciverController extends GetxController {
     'الضالع',
     'حجة',
   ];
+  void toggleRememberMe() {
+    rememberMe = !rememberMe;
+    update();
+  }
+
+  void setToCity(String? city) {
+    toCity = city;
+    update();
+  }
+
   @override
   void onInit() {
     cityController = TextEditingController();
@@ -45,10 +55,5 @@ class ReciverController extends GetxController {
     reciverNameController.dispose();
     reciverPhoneController.dispose();
     super.onClose();
-  }
-
-  void setToCity(String? city) {
-    toCity = city;
-    update();
   }
 }

@@ -5,6 +5,7 @@ import 'package:khafif/core/constants/appColors.dart';
 import 'package:khafif/view/widgets/auth/coustomAuthButton.dart';
 import 'package:khafif/view/widgets/calculator/custom_calc_header2.dart';
 import 'package:khafif/view/widgets/calculator/custom_header_calc.dart';
+import 'package:khafif/view/widgets/shared/shipment_type.dart';
 
 class PriceCalcType extends StatelessWidget {
   const PriceCalcType({super.key});
@@ -36,55 +37,10 @@ class PriceCalcType extends StatelessWidget {
 
                   const SizedBox(height: 10),
 
-                  Row(
-                    children: [
-                      Expanded(
-                        child: GestureDetector(
-                          onTap: () => controller.setShipmentType("وثيقة"),
-                          child: Container(
-                            padding: const EdgeInsets.symmetric(vertical: 12),
-                            decoration: BoxDecoration(
-                              color: controller.shipmentType == "وثيقة"
-                                  ? AppColor.primaryColor
-                                  : AppColor.thirdColor,
-                              borderRadius: const BorderRadius.only(
-                                topRight: Radius.circular(12),
-                                bottomRight: Radius.circular(12),
-                              ),
-                            ),
-                            child: const Center(
-                              child: Text(
-                                "وثيقة",
-                                style: TextStyle(color: Colors.white),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      Expanded(
-                        child: GestureDetector(
-                          onTap: () => controller.setShipmentType("طرد"),
-                          child: Container(
-                            padding: const EdgeInsets.symmetric(vertical: 12),
-                            decoration: BoxDecoration(
-                              color: controller.shipmentType == "طرد"
-                                  ? AppColor.primaryColor
-                                  : AppColor.thirdColor,
-                              borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(12),
-                                bottomLeft: Radius.circular(12),
-                              ),
-                            ),
-                            child: const Center(
-                              child: Text(
-                                "طرود",
-                                style: TextStyle(color: Colors.white),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
+                  // اختيار نوع الشحنة
+                  ShipmentType(
+                    onTap: (type) => controller.setShipmentType(type),
+                    shipmentType: controller.shipmentType,
                   ),
 
                   const SizedBox(height: 25),
