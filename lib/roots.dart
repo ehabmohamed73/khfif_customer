@@ -8,9 +8,11 @@ import 'package:khafif/view/screens/auth/signup.dart';
 import 'package:khafif/view/screens/edit_info.dart';
 import 'package:khafif/view/screens/home.dart';
 import 'package:khafif/view/screens/onboarding.dart';
-import 'package:khafif/view/screens/price_calc.dart';
-import 'package:khafif/view/screens/price_calc_show.dart';
-import 'package:khafif/view/screens/price_calc_type.dart';
+import 'package:khafif/view/screens/price_calculator/price_calc.dart';
+import 'package:khafif/view/screens/price_calculator/price_calc_show.dart';
+import 'package:khafif/view/screens/price_calculator/price_calc_type.dart';
+import 'package:khafif/view/screens/sened_package/confirm_and_checkout.dart';
+import 'package:khafif/view/screens/sened_package/package_info.dart';
 import 'package:khafif/view/screens/sened_package/revicer_info.dart';
 import 'package:khafif/view/screens/splash_screen.dart';
 
@@ -35,6 +37,8 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: AppRoot.priceCalcShowScreen, page: () => PriceCalcShow()),
   GetPage(name: AppRoot.priceCalc, page: () => PriceCalc()),
   GetPage(name: AppRoot.reciverInfo, page: () => RevicerInfo()),
+  GetPage(name: AppRoot.packageInfo, page: () => PackageInfo()),
+  GetPage(name: AppRoot.confirmAndCheckout, page: () => ConfirmAndCheckout()),
 
   // Add other routes here as needed
 ];

@@ -127,7 +127,12 @@ class RevicerInfo extends StatelessWidget {
                   margin: EdgeInsets.symmetric(horizontal: 16),
                   width: double.infinity,
                   height: 60,
-                  child: CoustomAuthButton(text: "التالي", onPressed: () {}),
+                  child: CoustomAuthButton(
+                    text: "التالي",
+                    onPressed: () {
+                      controller.goToPackageInfo();
+                    },
+                  ),
                 ),
               ],
             ),

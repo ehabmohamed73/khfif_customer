@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:khafif/core/constants/app_rootd.dart';
 
 class ReciverController extends GetxController {
   late TextEditingController cityController;
@@ -35,6 +36,10 @@ class ReciverController extends GetxController {
   void setToCity(String? city) {
     toCity = city;
     update();
+  }
+
+  goToPackageInfo() {
+    Get.toNamed(AppRoot.packageInfo);
   }
 
   @override

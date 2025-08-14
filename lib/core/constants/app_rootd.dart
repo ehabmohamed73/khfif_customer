@@ -23,4 +23,6 @@ class AppRoot {
   static const String priceTypeCalcScreen = "/priceTypeCalc";
   static const String priceCalcShowScreen = "/priceCalcShow";
   static const String reciverInfo = "/reciverInfo";
+  static const String packageInfo = "/packageInfo";
+  static const String confirmAndCheckout = "/confirmAndCheckout";
 }
