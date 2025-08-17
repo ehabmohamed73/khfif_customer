@@ -1,8 +1,11 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:khafif/core/constants/app_rootd.dart';
+import 'package:khafif/core/services/inti_services.dart';
 
-class ReciverController extends GetxController {
+class ReciverController extends GetxController
+    with SingleGetTickerProviderMixin {
   late TextEditingController cityController;
   late TextEditingController streetController;
   late TextEditingController descriptionController;
@@ -10,6 +13,10 @@ class ReciverController extends GetxController {
   late TextEditingController reciverPhoneController;
   var rememberMe = false;
   String? toCity;
+  int selectedTab = 0; // بدون .obs
+  late TabController tabController;
+  MyServices services = Get.find<MyServices>();
+
   List<String> cities = [
     'صنعاء',
     'عدن',
@@ -39,11 +46,18 @@ class ReciverController extends GetxController {
   }
 
   goToPackageInfo() {
+    services.sharedpref.setString("city", toCity!);
     Get.toNamed(AppRoot.packageInfo);
+  }
+
+  void changeTab(int index) {
+    selectedTab = index;
+    update(); // هذا مهم جداً
   }
 
   @override
   void onInit() {
+    tabController = TabController(length: 2, vsync: this);
     cityController = TextEditingController();
     streetController = TextEditingController();
     descriptionController = TextEditingController();
@@ -59,6 +73,7 @@ class ReciverController extends GetxController {
     descriptionController.dispose();
     reciverNameController.dispose();
     reciverPhoneController.dispose();
+    tabController.dispose();
     super.onClose();
   }
 }

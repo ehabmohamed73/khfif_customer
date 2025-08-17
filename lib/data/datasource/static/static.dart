@@ -21,3 +21,17 @@ List<onBordingModel> bordingModleList = [
     image: imagesAssets.khafifimage3,
   ),
 ];
+final addresses = [
+  {
+    "type": "مبنى",
+    "location": "العليا, الرياض",
+    "phone": "554881035",
+    "country": "الرياض, المملكة العربية السعودية",
+  },
+  {
+    "type": "مبنى",
+    "location": "العليا, الرياض",
+    "phone": "554881035",
+    "country": "الرياض, المملكة العربية السعودية",
+  },
+];

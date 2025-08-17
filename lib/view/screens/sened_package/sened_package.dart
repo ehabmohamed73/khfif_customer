@@ -77,28 +77,92 @@ class SenedPackage extends StatelessWidget {
               SizedBox(
                 height: 115,
                 child: ListView.builder(
-                  itemCount: controller.addressList.length,
+                  itemCount: controller.addressList.length + 1, // +1 للزر
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
-                    bool selected = index == controller.selectedLocation;
-                    return GestureDetector(
-                      onTap: () {
-                        // هنا يمكنك إضافة منطق عند اختيار العنوان
-                        controller.setselectedLocation(index);
-                      },
-                      child: AddressCard(
-                        txtColor: selected
-                            ? AppColor.white
-                            : AppColor.primaryColor,
-                        bgColor: selected
-                            ? AppColor.secoundColor
-                            : AppColor.fourthColor.withOpacity(0.3),
-                        addressModel: controller.addressList[index],
-                      ),
-                    );
+                    if (index == controller.addressList.length) {
+                      // زر إضافة عنوان
+                      return GestureDetector(
+                        onTap: () {
+                          // منطق إضافة عنوان جديد
+                          // controller.goToAddNewAddress();
+                        },
+                        child: Container(
+                          width: 150,
+                          margin: const EdgeInsets.symmetric(horizontal: 8),
+                          decoration: BoxDecoration(
+                            color: AppColor.gray2,
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          child: const Center(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(
+                                  Icons.location_on_rounded,
+                                  size: 60,
+                                  color: AppColor.black,
+                                ),
+                                SizedBox(width: 8),
+                                Text(
+                                  "إضافة عنوان جديد",
+                                  style: TextStyle(
+                                    color: AppColor.primaryColor,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      );
+                    } else {
+                      // العناوين المخزنة
+                      bool selected = index == controller.selectedLocation;
+                      return GestureDetector(
+                        onTap: () {
+                          controller.setselectedLocation(index);
+                        },
+                        child: AddressCard(
+                          txtColor: selected
+                              ? AppColor.white
+                              : AppColor.primaryColor,
+                          bgColor: selected
+                              ? AppColor.secoundColor
+                              : AppColor.gray2,
+                          addressModel: controller.addressList[index],
+                        ),
+                      );
+                    }
                   },
                 ),
               ),
+
+              // SizedBox(
+              //   height: 115,
+              //   child: ListView.builder(
+              //     itemCount: controller.addressList.length,
+              //     scrollDirection: Axis.horizontal,
+              //     itemBuilder: (context, index) {
+              //       bool selected = index == controller.selectedLocation;
+              //       return GestureDetector(
+              //         onTap: () {
+              //           // هنا يمكنك إضافة منطق عند اختيار العنوان
+              //           controller.setselectedLocation(index);
+              //         },
+              //         child: AddressCard(
+              //           txtColor: selected
+              //               ? AppColor.white
+              //               : AppColor.primaryColor,
+              //           bgColor: selected
+              //               ? AppColor.secoundColor
+              //               : AppColor.fourthColor.withOpacity(0.3),
+              //           addressModel: controller.addressList[index],
+              //         ),
+              //       );
+              //     },
+              //   ),
+              // ),
               SizedBox(height: 15),
               // اختيار التاريخ
               Text(
