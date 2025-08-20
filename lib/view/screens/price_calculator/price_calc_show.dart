@@ -5,6 +5,7 @@ import 'package:khafif/core/constants/appColors.dart';
 import 'package:khafif/core/constants/image_assets.dart';
 import 'package:khafif/view/widgets/calculator/custom_build_widget.dart';
 import 'package:khafif/view/widgets/calculator/custom_header_calc.dart';
+import 'package:khafif/view/widgets/calculator/custome_text.dart';
 
 class PriceCalcShow extends StatelessWidget {
   const PriceCalcShow({super.key});
@@ -55,22 +56,9 @@ class PriceCalcShow extends StatelessWidget {
                 ),
 
                 const SizedBox(height: 12),
-
                 // ملاحظة السعر
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
-                    Icon(Icons.info_outline, color: Colors.blue, size: 20),
-                    SizedBox(width: 6),
-                    Text(
-                      'تم حساب السعر بناءً على تعرفة البلد : اليمن',
-                      style: TextStyle(fontSize: 14),
-                    ),
-                  ],
-                ),
-
+                CustomeTextRow(),
                 const SizedBox(height: 16),
-
                 // بطاقة السعر
                 Container(
                   margin: const EdgeInsets.symmetric(horizontal: 20),
@@ -85,14 +73,10 @@ class PriceCalcShow extends StatelessWidget {
                   ),
                   child: Column(
                     children: [
-                      Icon(
-                        Icons.local_shipping,
-                        color: AppColor.primaryColor,
-                        size: 60,
-                      ),
-                      const SizedBox(height: 12),
-                      const Text(
-                        "وثيقة في اليوم التالي",
+                      Image.asset(imagesAssets.trackImage, height: 150),
+
+                      Text(
+                        "${controller.shipmentType},تسلم في التاريخ والوقت المحدد",
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 16,
@@ -108,7 +92,7 @@ class PriceCalcShow extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 6),
-                      Text("خلال 4 يوم", style: const TextStyle(fontSize: 14)),
+                      Text("تسلم يوم ", style: const TextStyle(fontSize: 14)),
                     ],
                   ),
                 ),

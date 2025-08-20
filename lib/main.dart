@@ -7,6 +7,7 @@ import 'package:khafif/roots.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   await intialServices();
   runApp(const MyApp());
 }

@@ -138,31 +138,6 @@ class SenedPackage extends StatelessWidget {
                 ),
               ),
 
-              // SizedBox(
-              //   height: 115,
-              //   child: ListView.builder(
-              //     itemCount: controller.addressList.length,
-              //     scrollDirection: Axis.horizontal,
-              //     itemBuilder: (context, index) {
-              //       bool selected = index == controller.selectedLocation;
-              //       return GestureDetector(
-              //         onTap: () {
-              //           // هنا يمكنك إضافة منطق عند اختيار العنوان
-              //           controller.setselectedLocation(index);
-              //         },
-              //         child: AddressCard(
-              //           txtColor: selected
-              //               ? AppColor.white
-              //               : AppColor.primaryColor,
-              //           bgColor: selected
-              //               ? AppColor.secoundColor
-              //               : AppColor.fourthColor.withOpacity(0.3),
-              //           addressModel: controller.addressList[index],
-              //         ),
-              //       );
-              //     },
-              //   ),
-              // ),
               SizedBox(height: 15),
               // اختيار التاريخ
               Text(
@@ -180,6 +155,7 @@ class SenedPackage extends StatelessWidget {
                     return GestureDetector(
                       onTap: () {
                         controller.selectDate(index);
+                        controller.reciveDate(index);
                       },
                       child: DateOfRecive(
                         selected ? AppColor.primaryColor : AppColor.gray2,

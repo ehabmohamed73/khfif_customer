@@ -12,4 +12,6 @@ class imagesAssets {
   static const fromCityImage = "$rootAssets/from.png";
   static const toCityImage = "$rootAssets/to.png";
   static const shipmentImage = "$rootAssets/things.png";
+  static const calenderImage = "$rootAssets/calnder.png";
+  static const trackImage = "$rootAssets/track.png";
 }

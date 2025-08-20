@@ -61,7 +61,7 @@ class CustomBuildWidget extends GetView<PriceCalcController> {
             ],
           ),
           Container(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+            padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Text(
               value!,
               style: const TextStyle(fontSize: 14, color: Colors.black87),
