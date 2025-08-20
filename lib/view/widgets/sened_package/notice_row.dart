@@ -11,7 +11,7 @@ class NoticeRow extends StatelessWidget {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Container(child: Image.asset(imageUrl)),
+        SizedBox(height: 52, child: Image.asset(imageUrl)),
         const SizedBox(width: 12),
         Expanded(
           child: Text(

@@ -9,6 +9,7 @@ import 'package:khafif/view/widgets/calculator/shipment_type.dart';
 import 'package:khafif/view/widgets/calculator/shipment_wight.dart';
 import 'package:khafif/view/widgets/sened_package/build_progressline.dart';
 import 'package:khafif/view/widgets/sened_package/build_step_itme.dart';
+import 'package:khafif/view/widgets/sened_package/custome_input_send.dart';
 import 'package:khafif/view/widgets/sened_package/custome_pop_up.dart';
 import 'package:khafif/view/widgets/shared/custome_text_shi.dart';
 
@@ -90,6 +91,35 @@ class PackageInfo extends StatelessWidget {
                           controller.setWeightUnit(wight),
                     ),
                     const SizedBox(height: 20),
+                    Row(
+                      children: [
+                        Expanded(child: CustomeTextShi(text: "وصف الشحنة")),
+                        Expanded(child: CustomeTextShi(text: "قيمة الشحنة ")),
+                      ],
+                    ),
+                    const SizedBox(height: 10),
+                    Row(
+                      children: [
+                        Expanded(
+                          flex: 3,
+                          child: CustomeInputSend(
+                            textEditingController:
+                                controller.shipmentDescriptionController,
+                            hintText: "مثال:قميص,حقيبة",
+                            keyboardType: TextInputType.text,
+                            onWeightUnitChanged: null,
+                          ),
+                        ),
+                        SizedBox(width: 10),
+                        Expanded(
+                          child: CustomeInputSend(
+                            hintText: "ريال",
+                            keyboardType: TextInputType.number,
+                            textEditingController: controller.shipmentPrice,
+                          ),
+                        ),
+                      ],
+                    ),
                     Container(
                       width: double.infinity,
                       margin: const EdgeInsets.symmetric(vertical: 20),

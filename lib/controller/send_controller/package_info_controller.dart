@@ -6,7 +6,8 @@ class PackageInfoController extends GetxController {
   String shipmentType = 'وثيقة';
   String weightUnit = 'كجم';
   TextEditingController weightController = TextEditingController();
-
+  TextEditingController shipmentDescriptionController = TextEditingController();
+  TextEditingController shipmentPrice = TextEditingController();
   void setShipmentType(String type) {
     shipmentType = type;
     update();
@@ -21,7 +22,7 @@ class PackageInfoController extends GetxController {
 
   void goToPriceAndCheckOutScreen() {
     print(
-      "==== $shipmentType  === $weightUnit  ==== ${weightController.text} =====",
+      "==== $shipmentType  === $weightUnit  ==== ${weightController.text} ===== ${shipmentDescriptionController.text}=== ${shipmentPrice.text}",
     );
     Get.toNamed(
       AppRoot.confirmAndCheckout,
@@ -29,6 +30,8 @@ class PackageInfoController extends GetxController {
         "shipmentType": shipmentType,
         "weightUnit": weightUnit,
         "weightValue": weightController.text,
+        "shipmentDescription": shipmentDescriptionController.text,
+        "shipmentPrice": shipmentPrice.text,
       },
     );
 

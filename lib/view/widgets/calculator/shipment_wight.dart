@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:khafif/view/widgets/sened_package/custome_input_send.dart';
 
 class CustomeShipmentWight extends StatelessWidget {
   final TextEditingController weightController;
@@ -16,26 +17,19 @@ class CustomeShipmentWight extends StatelessWidget {
     return Row(
       children: [
         Expanded(
-          child: TextFormField(
-            controller: weightController,
+          child: CustomeInputSend(
+            textEditingController: weightController,
+            hintText: "4",
             keyboardType: TextInputType.number,
-            decoration: InputDecoration(
-              hintText: "10",
-              filled: true,
-              fillColor: Colors.grey.shade200,
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10),
-                borderSide: BorderSide.none,
-              ),
-            ),
+            onWeightUnitChanged: null,
           ),
         ),
         const SizedBox(width: 10),
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 10),
           decoration: BoxDecoration(
-            color: Colors.grey.shade200,
             borderRadius: BorderRadius.circular(10),
+            border: Border.all(color: Colors.grey, width: 1),
           ),
           child: DropdownButton<String>(
             value: wightUnit,

@@ -14,4 +14,7 @@ class imagesAssets {
   static const shipmentImage = "$rootAssets/things.png";
   static const calenderImage = "$rootAssets/calnder.png";
   static const trackImage = "$rootAssets/track.png";
+  static const nonShipmentImage = "$rootAssets/nonShipment.png";
+  static const shipmentTasxeImage = "$rootAssets/shipmentTasxe.png";
+  static const wightChenageImage = "$rootAssets/wightChenage.png";
 }

@@ -18,8 +18,10 @@ class ConfirmController extends GetxController {
   String? shipmentType = '';
   String? weightUnit = '';
   String? weightValue = '';
+  String totalPrice = '';
   @override
   void onInit() {
+    totalPrice = "1000";
     fromTime = services.sharedpref.getString("fromTime") ?? '';
     toTime = services.sharedpref.getString("toTime") ?? '';
     monthName = months[now.month - 1];

@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:khafif/controller/send_controller/confirm_controller.dart';
 import 'package:khafif/core/constants/appColors.dart';
 import 'package:khafif/core/constants/image_assets.dart';
+import 'package:khafif/view/widgets/sened_package/notice_box.dart';
+import 'package:khafif/view/widgets/auth/coustomAuthButton.dart';
 import 'package:khafif/view/widgets/calculator/custom_build_widget.dart';
 import 'package:khafif/view/widgets/calculator/custom_header_calc.dart';
 import 'package:khafif/view/widgets/calculator/custome_text.dart';
@@ -87,6 +89,33 @@ class ConfirmAndCheckout extends StatelessWidget {
                     style: const TextStyle(fontSize: 14),
                   ),
                 ],
+              ),
+            ),
+            NoticeBox(),
+            Container(color: AppColor.gray, width: double.infinity, height: 2),
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "الاجمالي: ",
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
+                  Text(
+                    "${controller.totalPrice} ريال يمني",
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+              child: CoustomAuthButton(
+                text: "تابع عملية الدفع",
+                onPressed: () {
+                  // هنا يمكنك إضافة منطق متابعة عملية الدفع
+                },
               ),
             ),
           ],

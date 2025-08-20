@@ -8,7 +8,10 @@ class CustomeTextShi extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 10),
-      child: Text(text, style: TextStyle(fontWeight: FontWeight.bold)),
+      child: Text(
+        text,
+        style: TextStyle(fontSize: 12, fontWeight: FontWeight.w100),
+      ),
     );
   }
 }
