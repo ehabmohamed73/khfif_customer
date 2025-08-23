@@ -17,4 +17,5 @@ class imagesAssets {
   static const nonShipmentImage = "$rootAssets/nonShipment.png";
   static const shipmentTasxeImage = "$rootAssets/shipmentTasxe.png";
   static const wightChenageImage = "$rootAssets/wightChenage.png";
+  static const shipningBoxImage = "$rootAssets/shipining_box.png";
 }

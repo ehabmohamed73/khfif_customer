@@ -5,11 +5,17 @@ import 'package:khafif/core/constants/app_rootd.dart';
 class PackageInfoController extends GetxController {
   String shipmentType = 'وثيقة';
   String weightUnit = 'كجم';
+  var selectedCarIndex = -1;
   TextEditingController weightController = TextEditingController();
   TextEditingController shipmentDescriptionController = TextEditingController();
   TextEditingController shipmentPrice = TextEditingController();
   void setShipmentType(String type) {
     shipmentType = type;
+    update();
+  }
+
+  void setSelectedCarIndex(int index) {
+    selectedCarIndex = index;
     update();
   }
 
@@ -21,6 +27,7 @@ class PackageInfoController extends GetxController {
   }
 
   void goToPriceAndCheckOutScreen() {
+    Get.back();
     print(
       "==== $shipmentType  === $weightUnit  ==== ${weightController.text} ===== ${shipmentDescriptionController.text}=== ${shipmentPrice.text}",
     );

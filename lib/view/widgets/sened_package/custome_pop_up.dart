@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:khafif/controller/send_controller/package_info_controller.dart';
 
-void customPopUp() {
-  final controller = Get.put(PackageInfoController());
+void customPopUp(String title, String message, void Function()? onConfirm) {
   Get.dialog(
     AlertDialog(
       backgroundColor: Colors.white,
@@ -23,8 +21,8 @@ void customPopUp() {
           const SizedBox(height: 10),
 
           // العنوان
-          const Text(
-            "تقدير الوزن.",
+          Text(
+            title,
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
@@ -35,9 +33,8 @@ void customPopUp() {
           const SizedBox(height: 10),
 
           // النص
-          const Text(
-            "الرجاء التأكد من الوزن بعد التغليف لتجنب أي تأخر في التوصيل، "
-            "قد يتغير السعر في حالة وجود اختلاف في الوزن",
+          Text(
+            message,
             style: TextStyle(fontSize: 14, color: Colors.black54),
             textAlign: TextAlign.center,
           ),
@@ -47,7 +44,7 @@ void customPopUp() {
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(
-              onPressed: () => controller.goToPriceAndCheckOutScreen(),
+              onPressed: onConfirm,
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.green,
                 shape: RoundedRectangleBorder(
@@ -64,6 +61,6 @@ void customPopUp() {
         ],
       ),
     ),
-    barrierDismissible: false,
+    barrierDismissible: true,
   );
 }

@@ -49,3 +49,8 @@ List<String> months = [
   "نوفمبر",
   "ديسمبر",
 ];
+List<Map<String, dynamic>> shipmentSize = [
+  {"length": 20, "width": 20, "height": 15, "wight": 2},
+  {"length": 30, "width": 35, "height": 30, "wight": 30},
+  {"length": 120, "width": 120, "height": 120, "wight": 50},
+];
